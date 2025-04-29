@@ -14,4 +14,13 @@ export default defineConfig({
     minify: true,
     sourcemap: true,
   },
+  define: {
+    global: "globalThis",
+    "process.env": {},
+  },
+  resolve: {
+    alias: {
+      buffer: "buffer/",
+    },
+  },
 });
