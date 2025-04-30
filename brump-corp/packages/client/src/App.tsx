@@ -12,6 +12,7 @@ import {
 } from "@latticexyz/recs";
 import { useEffect, useState } from "react";
 import { Visa } from "./pod/Visa";
+import { VisaStatus as PodVisaStatus } from "./pod/createVisaPod";
 
 export const App = () => {
   const {
@@ -97,6 +98,7 @@ export const App = () => {
       case 3:
         return {
           text: "Golden Visa",
+          status: PodVisaStatus.GOLDEN,
           color: "#FFD700",
           image: "/visa-golden.svg",
           description: "Elite status - 10+ killmails",
@@ -104,6 +106,7 @@ export const App = () => {
       case 2:
         return {
           text: "Green Card",
+          status: PodVisaStatus.GREEN,
           color: "#00FF00",
           image: "/visa-green.svg",
           description: "Advanced status - 5+ killmails",
@@ -111,6 +114,7 @@ export const App = () => {
       case 1:
         return {
           text: "Blue Card",
+          status: PodVisaStatus.BLUE,
           color: "#0000FF",
           image: "/visa-blue.svg",
           description: "Basic status - 2+ killmails",
@@ -118,6 +122,7 @@ export const App = () => {
       default:
         return {
           text: "No Visa",
+          status: PodVisaStatus.NONE,
           color: "#808080",
           image: "/visa-none.svg",
           description: "Start submitting killmails to earn your visa!",
@@ -140,7 +145,7 @@ export const App = () => {
     >
       <h1>Frontier Visa with PODs</h1>
       
-      <Visa playerAddress={playerAddress} statusInfo={statusInfo} holderAddress={holderAddress} />
+      <Visa playerAddress={playerAddress} statusInfo={statusInfo} holderAddress={holderAddress} counterValue={counterValue}/>
 
       <div style={{ marginBottom: "2rem" }}>
         <h2>Prove Your Loyalty and Earn a Visa</h2>
@@ -152,7 +157,7 @@ export const App = () => {
           <li>5+ killmails: Green Card</li>
           <li>10+ killmails: Golden Visa</li>
         </ul>
-        <PodVerifier onValidPod={handleValidPod} setHolderAddress={setHolderAddress} />
+        <PodVerifier onValidPod={handleValidPod} setHolderAddress={setHolderAddress}/>
       </div>
     </div>
   );

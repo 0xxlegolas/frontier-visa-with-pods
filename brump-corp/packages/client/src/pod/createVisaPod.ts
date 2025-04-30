@@ -17,6 +17,14 @@ const artifactURL = gpcArtifactDownloadURL(
 //POD Data
 const privateSigningKey = "2851153af6e862439ff91253684f85a6357ec7a3edcec4324de1eb7db4431ea5";
 
+// Visa status levels
+export enum VisaStatus {
+    NONE = 0,
+    BLUE = 1,    // Basic access
+    GREEN = 2,   // Advanced access
+    GOLDEN = 3   // Elite access
+  }
+  
 /**
  * Checks if the POD was signed by the expected authority.
  *
@@ -24,7 +32,7 @@ const privateSigningKey = "2851153af6e862439ff91253684f85a6357ec7a3edcec4324de1e
  * @param expectedAuthorityPublicKey The public key of the trusted authority.
  * @returns True if the signerPublicKey in the POD matches the expected key, false otherwise.
  */
-export async function createVisaPod(SCA: string, expiryDate: Date, securityLevel: number) {
+export async function createVisaPod(SCA: string, expiryDate: Date, securityLevel: VisaStatus) {
 
     const visaEntries: PODEntries = {
         security_level: {
