@@ -2,6 +2,7 @@ import { useState } from "react";
 import { JSONPOD } from "@pcd/pod";
 import { verifyPodInternalSignature, checkPodSigner } from "./podVerification";
 import { Buffer } from "buffer";
+import { useMUD } from "../MUDContext";
 
 // Make Buffer available globally
 window.Buffer = Buffer;
@@ -9,10 +10,14 @@ window.Buffer = Buffer;
 const AUTHORITY_PUB_KEY = "Mc2IbgO1ihBqpoPgE4WacZcORWNfNJko5v9rg4o2AiM";
 
 interface PodVerifierProps {
-  onValidPod: () => Promise<void>;
+  onValidPod: (player: string) => Promise<void>;
 }
 
 export function PodVerifier({ onValidPod }: PodVerifierProps) {
+  const {
+    systemCalls: { submitKillmail },
+  } = useMUD();
+
   const [podInput, setPodInput] = useState("");
   const [verificationResult, setVerificationResult] = useState<{
     isValid: boolean;
@@ -75,37 +80,100 @@ export function PodVerifier({ onValidPod }: PodVerifierProps) {
   const handleVerify = async () => {
     try {
       setError(null);
-      const parsedPod = JSON.parse(podInput) as JSONPOD;
+      setVerificationResult(null);
+
+      // Trim and clean the input
+      const cleanedInput = podInput.trim();
+      if (!cleanedInput) {
+        setError("Please enter a POD");
+        return;
+      }
+
+      // Try to parse the JSON
+      let parsedPod: JSONPOD;
+      try {
+        parsedPod = JSON.parse(cleanedInput);
+      } catch (parseError) {
+        console.error("JSON Parse Error:", parseError);
+        setError("Invalid JSON format. Please check your input.");
+        return;
+      }
+
+      // Verify the POD structure
       const result = verifyKillmailPod(parsedPod);
       setVerificationResult(result);
       
       if (result.isValid) {
-        await onValidPod();
+        try {
+          const killerAddress = parsedPod.entries.killer_address;
+          if (!killerAddress) {
+            setError("Killer address not found in POD");
+            return;
+          }
+          await onValidPod(killerAddress);
+        } catch (podError) {
+          console.error("POD Processing Error:", podError);
+          setError("Error processing POD. Please try again.");
+        }
       }
     } catch (e) {
-      setError("Invalid JSON format. Please check your input.");
+      console.error("Unexpected Error:", e);
+      setError("An unexpected error occurred. Please try again.");
       setVerificationResult(null);
     }
   };
 
   return (
     <div className="pod-verifier">
-      <h2>Killmail POD Verifier</h2>
       <textarea
         value={podInput}
         onChange={(e) => setPodInput(e.target.value)}
         placeholder="Paste your JSONPOD here..."
-        style={{ width: "100%", height: "200px", marginBottom: "1rem" }}
+        style={{ 
+          width: "100%", 
+          height: "200px", 
+          marginBottom: "1rem",
+          padding: "0.5rem",
+          fontFamily: "monospace",
+          fontSize: "14px"
+        }}
       />
-      <button onClick={handleVerify}>Verify POD</button>
+      <button 
+        onClick={handleVerify}
+        style={{
+          padding: "0.5rem 1rem",
+          backgroundColor: "#4CAF50",
+          color: "white",
+          border: "none",
+          borderRadius: "4px",
+          cursor: "pointer"
+        }}
+      >
+        Verify POD
+      </button>
       
-      {error && <div style={{ color: "red", marginTop: "1rem" }}>{error}</div>}
+      {error && (
+        <div style={{ 
+          color: "red", 
+          marginTop: "1rem",
+          padding: "0.5rem",
+          backgroundColor: "#ffebee",
+          borderRadius: "4px"
+        }}>
+          {error}
+        </div>
+      )}
       
       {verificationResult && (
-        <div style={{ marginTop: "1rem" }}>
-          <h3>Verification Results:</h3>
+        <div style={{ 
+          marginTop: "1rem",
+          padding: "1rem",
+          backgroundColor: "#f5f5f5",
+          borderRadius: "4px"
+        }}>
+          <h3 style={{ marginTop: 0 }}>Verification Results:</h3>
           {verificationResult.messages.map((msg, index) => (
-            <div key={index}>{msg}</div>
+            <div key={index} style={{ marginBottom: "0.5rem" }}>{msg}</div>
           ))}
           <div style={{ 
             marginTop: "1rem", 

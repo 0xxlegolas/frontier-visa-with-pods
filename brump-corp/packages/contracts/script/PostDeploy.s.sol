@@ -16,14 +16,15 @@ contract PostDeploy is Script {
     uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
 
     // Start broadcasting transactions from the deployer account
-    vm.startBroadcast(deployerPrivateKey);
+    // vm.startBroadcast(deployerPrivateKey);
 
-    // ------------------ EXAMPLES ------------------
+    // Test the visa system with a sample address
+    // address testPlayer = address(0x123);
+    // (uint32 count, uint8 status) = IWorld(worldAddress).brumpcorp__submitKillmail(testPlayer);
+    // console.log("Test Visa System:");
+    // console.log("Killmail Count:", count);
+    // console.log("Visa Status:", status);
 
-    // Call increment on the world via the registered function selector
-    uint32 newValue = IWorld(worldAddress).app__increment();
-    console.log("Increment via IWorld:", newValue);
-
-    vm.stopBroadcast();
+    // vm.stopBroadcast();
   }
 }
