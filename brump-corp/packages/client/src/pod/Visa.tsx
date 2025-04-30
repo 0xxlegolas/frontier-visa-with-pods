@@ -45,49 +45,57 @@ export function Visa({
           gap: "1rem",
         }}
       >
-        <div style={{ width: "64px", height: "64px" }}>
+        <div style={{ width: "200px", height: "200px" }}>
           <img
             src={statusInfo.image}
             alt={statusInfo.text}
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </div>
-        <div style={{ flex: 1 }}>
-          <h3 style={{ margin: 0, color: statusInfo.color }}>
-            {statusInfo.text}
-          </h3>
-          <p style={{ margin: "0.5rem 0 0 0", color: statusInfo.color }}>
-            {statusInfo.description}
-          </p>
-          <p style={{ margin: "0.5rem 0 0 0", color: statusInfo.color }}>
-            Killmail Count: {counterValue}
-          </p>
-        </div>
-        <button
-          onClick={async () => {
-            try {
-              const pod = await createVisaPod(
-                holderAddress,
-                new Date("2026-04-10T00:00:00.000Z"),
-                statusInfo.visaStatus
-              );
-              setVisaPod(pod);
-            } catch (err) {
-              console.error("Failed to create POD:", err);
-            }
-          }}
+        <div
           style={{
-            padding: "0.5rem 1rem",
-            color: "rgb(15, 15, 15)",
-            backgroundColor: statusInfo.color,
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-            fontWeight: "bold",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
           }}
         >
-          Generate POD
-        </button>
+          <div style={{ flex: 1 }}>
+            <h3 style={{ margin: 0, color: statusInfo.color }}>
+              {statusInfo.text}
+            </h3>
+            <p style={{ margin: "0.5rem 0 0 0", color: statusInfo.color }}>
+              {statusInfo.description}
+            </p>
+            <p style={{ margin: "0.5rem 0 0 0", color: statusInfo.color }}>
+              Killmail Count: {counterValue}
+            </p>
+          </div>
+          <button
+            onClick={async () => {
+              try {
+                const pod = await createVisaPod(
+                  holderAddress,
+                  new Date("2026-04-10T00:00:00.000Z"),
+                  statusInfo.visaStatus
+                );
+                setVisaPod(pod);
+              } catch (err) {
+                console.error("Failed to create POD:", err);
+              }
+            }}
+            style={{
+              padding: "0.5rem 1rem",
+              color: "rgb(15, 15, 15)",
+              backgroundColor: statusInfo.color,
+              border: "none",
+              borderRadius: "4px",
+              cursor: "pointer",
+              fontWeight: "bold",
+            }}
+          >
+            Generate POD
+          </button>
+        </div>
       </div>
       <div>
         {visaPod && (

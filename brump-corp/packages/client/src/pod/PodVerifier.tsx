@@ -7,6 +7,741 @@ import { useMUD } from "../MUDContext";
 // Make Buffer available globally
 window.Buffer = Buffer;
 
+const Unchecked = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="18"
+    height="18"
+    viewBox="0 0 27 27"
+    fill="none"
+  >
+    <rect
+      x="0.5"
+      y="0.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="0.5"
+      y="4.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="0.5"
+      y="8.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="0.5"
+      y="12.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="0.5"
+      y="16.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="0.5"
+      y="20.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="0.5"
+      y="24.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="4.5"
+      y="0.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="4.5"
+      y="4.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="4.5"
+      y="8.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect x="4.5" y="12.5" width="2" height="2" stroke="#FF4700" />
+    <rect
+      x="4.5"
+      y="20.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="4.5"
+      y="16.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="4.5"
+      y="24.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="8.5"
+      y="0.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="8.5"
+      y="4.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="8.5"
+      y="8.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="8.5"
+      y="20.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect x="8.5" y="12.5" width="2" height="2" stroke="#FF4700" />
+    <rect
+      x="8.5"
+      y="16.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="8.5"
+      y="24.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="12.5"
+      y="0.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="12.5"
+      y="4.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="12.5"
+      y="20.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="12.5"
+      y="8.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect x="12.5" y="12.5" width="2" height="2" stroke="#FF4700" />
+    <rect
+      x="12.5"
+      y="16.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="12.5"
+      y="24.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="16.5"
+      y="0.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="20.5"
+      y="0.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="24.5"
+      y="0.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="16.5"
+      y="4.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="20.5"
+      y="4.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="24.5"
+      y="4.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="16.5"
+      y="8.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="20.5"
+      y="8.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="24.5"
+      y="8.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="16.5"
+      y="20.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect x="16.5" y="12.5" width="2" height="2" stroke="#FF4700" />
+    <rect x="20.5" y="12.5" width="2" height="2" stroke="#FF4700" />
+    <rect
+      x="20.5"
+      y="20.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="24.5"
+      y="20.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="24.5"
+      y="12.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="16.5"
+      y="16.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="16.5"
+      y="24.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="20.5"
+      y="16.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="24.5"
+      y="16.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="20.5"
+      y="24.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="24.5"
+      y="24.5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+  </svg>
+);
+const Checked = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="18"
+    height="18"
+    viewBox="0 0 28 28"
+    fill="none"
+  >
+    <rect
+      x="1.15625"
+      y="1"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="1.15625"
+      y="5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="1.15625"
+      y="9"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="1.15625"
+      y="13"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="1.15625"
+      y="17"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="1.15625"
+      y="21"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="1.15625"
+      y="25"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="5.15625"
+      y="1"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="5.15625"
+      y="5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="5.15625"
+      y="9"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="5.15625"
+      y="13"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="5.15625"
+      y="21"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect x="5.15625" y="17" width="2" height="2" stroke="#FF4700" />
+    <rect
+      x="5.15625"
+      y="25"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="9.15625"
+      y="1"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="9.15625"
+      y="5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="9.15625"
+      y="9"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect x="9.15625" y="21" width="2" height="2" stroke="#FF4700" />
+    <rect
+      x="9.15625"
+      y="13"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="9.15625"
+      y="17"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="9.15625"
+      y="25"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="13.1562"
+      y="1"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="13.1562"
+      y="5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="13.1562"
+      y="21"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="13.1562"
+      y="9"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="13.1562"
+      y="13"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect x="13.1562" y="17" width="2" height="2" stroke="#FF4700" />
+    <rect
+      x="13.1562"
+      y="25"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="17.1562"
+      y="1"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="21.1562"
+      y="1"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="25.1562"
+      y="1"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="17.1562"
+      y="5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="21.1562"
+      y="5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="25.1562"
+      y="5"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="17.1562"
+      y="9"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect x="21.1562" y="9" width="2" height="2" stroke="#FF4700" />
+    <rect
+      x="25.1562"
+      y="9"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="17.1562"
+      y="21"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect x="17.1562" y="13" width="2" height="2" stroke="#FF4700" />
+    <rect
+      x="21.1562"
+      y="13"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="21.1562"
+      y="21"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="25.1562"
+      y="21"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="25.1562"
+      y="13"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="17.1562"
+      y="17"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="17.1562"
+      y="25"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="21.1562"
+      y="17"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="25.1562"
+      y="17"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="21.1562"
+      y="25"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+    <rect
+      x="25.1562"
+      y="25"
+      width="2"
+      height="2"
+      stroke="#FF4700"
+      strokeOpacity="0.3"
+    />
+  </svg>
+);
+
 const AUTHORITY_PUB_KEY = "Mc2IbgO1ihBqpoPgE4WacZcORWNfNJko5v9rg4o2AiM";
 
 interface PodVerifierProps {
@@ -25,30 +760,39 @@ export function PodVerifier({
   const [podInput, setPodInput] = useState("");
   const [verificationResult, setVerificationResult] = useState<{
     isValid: boolean;
-    messages: string[];
+    messages: { text: string; isValid: boolean }[];
   } | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const verifyKillmailPod = (pod: JSONPOD) => {
-    const messages: string[] = [];
+    const messages: { text: string; isValid: boolean }[] = [];
     let isValid = true;
 
     // 1. Verify internal signature
     const hasValidSignature = verifyPodInternalSignature(pod);
     if (!hasValidSignature) {
-      messages.push("❌ Pod internal signature verification failed");
+      messages.push({
+        text: "Pod internal signature verification failed",
+        isValid: false,
+      });
       isValid = false;
     } else {
-      messages.push("✅ Pod internal signature is valid");
+      messages.push({ text: "Pod internal signature is valid", isValid: true });
     }
 
     // 2. Verify authority signature
     const isSignedByAuthority = checkPodSigner(pod, AUTHORITY_PUB_KEY);
     if (!isSignedByAuthority) {
-      messages.push("❌ Pod is not signed by the expected authority");
+      messages.push({
+        text: "Pod is not signed by the expected authority",
+        isValid: false,
+      });
       isValid = false;
     } else {
-      messages.push("✅ Pod is signed by the correct authority");
+      messages.push({
+        text: "Pod is signed by the correct authority",
+        isValid: true,
+      });
     }
 
     // 3. Verify required fields
@@ -65,17 +809,23 @@ export function PodVerifier({
 
     for (const field of requiredFields) {
       if (!(field in pod.entries)) {
-        messages.push(`❌ Missing required field: ${field}`);
+        messages.push({
+          text: `Missing required field: ${field}`,
+          isValid: false,
+        });
         isValid = false;
       }
     }
 
     // 4. Verify pod type
     if (pod.entries.pod_data_type !== "evefrontier.killmail") {
-      messages.push('❌ Invalid pod type: expected "evefrontier.killmail"');
+      messages.push({
+        text: 'Invalid pod type: expected "evefrontier.killmail"',
+        isValid: false,
+      });
       isValid = false;
     } else {
-      messages.push("✅ Pod type is correct");
+      messages.push({ text: "Pod type is correct", isValid: true });
     }
 
     return { isValid, messages };
@@ -135,6 +885,12 @@ export function PodVerifier({
         onChange={(e) => setPodInput(e.target.value)}
         placeholder="Paste your JSONPOD here..."
         style={{
+          backgroundColor: "#111",
+          borderColor: "#db6329",
+          borderWidth: "1px",
+          borderStyle: "solid",
+          borderRadius: "8px",
+          color: "#db6329",
           width: "100%",
           height: "200px",
           marginBottom: "1rem",
@@ -175,14 +931,27 @@ export function PodVerifier({
           style={{
             marginTop: "1rem",
             padding: "1rem",
-            backgroundColor: "#f5f5f5",
-            borderRadius: "4px",
+            borderColor: "#db6329",
+            borderWidth: "1px",
+            borderStyle: "solid",
+            borderRadius: "8px",
+            color: "#db6329",
           }}
         >
           <h3 style={{ marginTop: 0 }}>Verification Results:</h3>
           {verificationResult.messages.map((msg, index) => (
-            <div key={index} style={{ marginBottom: "0.5rem" }}>
-              {msg}
+            <div
+              key={index}
+              style={{
+                color: "#db6329",
+                marginBottom: "0.5rem",
+                alignItems: "center",
+                display: "flex",
+                gap: "0.5rem",
+                fontSize: "14px",
+              }}
+            >
+              {msg.isValid ? <Checked /> : <Unchecked />} {msg.text}
             </div>
           ))}
           <div
