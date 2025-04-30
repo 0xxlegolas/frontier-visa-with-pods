@@ -7,6 +7,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"), // 👈 THIS!
+      buffer: "buffer/",
     },
   },
   server: {
@@ -19,5 +20,9 @@ export default defineConfig({
     target: "es2022",
     minify: true,
     sourcemap: true,
+  },
+  define: {
+    global: "globalThis",
+    "process.env": {},
   },
 });
