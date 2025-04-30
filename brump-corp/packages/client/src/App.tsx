@@ -129,14 +129,14 @@ export const App = () => {
     <div
       style={{
         padding: "2rem",
-        backgroundColor: "rgba(252, 207, 167, 0.8)",
+        backgroundColor: "#0f0f0f",
         maxWidth: "800px",
         margin: "0 auto",
         borderRadius: "1rem",
         boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.1)",
       }}
     >
-      <h1>Frontier Visa with PODs</h1>
+      <h1>Wormhole Visa with PODs</h1>
 
       {playerAddress ? (
         <div style={{ marginBottom: "2rem" }}>

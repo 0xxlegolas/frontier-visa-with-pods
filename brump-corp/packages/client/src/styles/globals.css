@@ -1,6 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@include fontfaceWoff2AndWoff("Body", "/fonts/FavoritMonoStd-Light", 200);
+@include fontfaceWoff2AndWoff("Body", "/fonts/FavoritMonoStd-Book", 300);
+@include fontfaceWoff2AndWoff("Body", "/fonts/FavoritMonoStd-Regular", 400);
+@include fontfaceWoff2AndWoff("Body", "/fonts/FavoritMonoStd-Bold", 700);
+@include fontfaceWoff2AndWoff("Headline", "/fonts/Disket-Mono-Regular", 400);
+@include fontfaceWoff2AndWoff("Headline", "/fonts/Disket-Mono-Bold", 700);
 
 :root {
   --background: oklch(0.86 0.156 54.888);
@@ -75,12 +81,9 @@
 
 @layer base {
   :root {
-    --red: #d62828;
-    --blue: #2c4048;
-    --orange: #f7941d;
-    --yellow: #fcd770;
-    --white: #ffffff;
-    --dark: #1a1a1a;
+    --color-orange: #ff4700;
+    --color-neutral: #fafae5;
+    --color-dark-gray: #0f0f0f;
     --color-background: var(--background);
     --color-foreground: var(--foreground);
     --color-card: var(--card);
@@ -125,54 +128,32 @@
   }
 
   body {
-    background: linear-gradient(to bottom right, #f6ae62, #f09038, #db6329);
-    font-family: "Bebas Neue", sans-serif;
+    background: linear-gradient(to bottom right, #0f0f0f, #ff4700);
+    font-family: "ABC Favorit Mono";
     position: relative;
   }
 
-  body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("/background.png");
-    background-repeat: repeat;
-    background-size: 100px;
-    background-position: center;
-    background-blend-mode: overlay;
-    z-index: -1;
-  }
-
-  h1,
-  h2,
-  h3 {
-    color: var(--blue);
+  h1 {
+    font-family: Headline;
+    color: #ff4700;
     text-transform: uppercase;
     text-shadow: 1px 1px var(--dark);
     text-align: center;
+    font-size: 40px;
   }
 
   h2 {
     color: #db6329;
-  }
-  p {
-    font-family: "Source Sans Pro", "Helvetica Neue", sans-serif;
-    font-weight: bold;
-    color: #2a1c09;
-  }
-
-  h1 {
-    font-size: 3.5rem;
-    margin-bottom: 0.5em;
-  }
-
-  h2 {
-    font-size: 2.5rem;
+    font-size: 30px;
   }
 
   h3 {
-    font-size: 1.75rem;
+    font-size: 20px;
+  }
+
+  p {
+    font-family: "Source Sans Pro", "Helvetica Neue", sans-serif;
+    font-weight: bold;
+    color: #fafae5;
   }
 }
