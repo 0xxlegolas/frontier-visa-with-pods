@@ -1,0 +1,22 @@
+{
+  "name": "pods",
+  "version": "1.0.0",
+  "main": "verify-killmail.ts",
+   "scripts": {
+    "verify": "ts-node verify-killmail.ts",
+    "visa": "ts-node visa-pod.ts",
+    "verify-visa": "ts-node verify-visa.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@pcd/pod": "^0.5.0",
+    "dotenv": "^16.5.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  }
+}
