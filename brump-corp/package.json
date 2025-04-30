@@ -25,6 +25,7 @@
     "eslint": "8.57.0",
     "mprocs": "^0.7.1",
     "postcss": "^8.5.3",
+    "sass": "^1.87.0",
     "shx": "^0.3.4",
     "tailwindcss": "^4.1.4",
     "typescript": "5.4.2"
