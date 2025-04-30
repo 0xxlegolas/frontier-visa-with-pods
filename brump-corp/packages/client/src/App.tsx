@@ -99,9 +99,9 @@ export const App = () => {
         return {
           text: "Golden Visa",
           status: PodVisaStatus.GOLDEN,
-          color: "#FFD700",
-          backgroundColor: "rgb(255 215 0 / 44%)",
-          image: "/visa-golden.svg",
+          color: "#6d3c12",
+          backgroundColor: "linear-gradient(to bottom, #f9dd51, #6d3c12)",
+          image: "/visa-gold.png",
           description: "Elite status - 10+ killmails",
         };
       case 2:
@@ -109,8 +109,8 @@ export const App = () => {
           text: "Green Card",
           status: PodVisaStatus.GREEN,
           color: "#00FF00",
-          backgroundColor: "rgb(0 255 0 / 44%)",
-          image: "/visa-green.svg",
+          backgroundColor: "linear-gradient(to top, #002310,rgb(60, 108, 67))",
+          image: "/visa-green.png",
           description: "Advanced status - 5+ killmails",
         };
       case 1:
@@ -118,8 +118,8 @@ export const App = () => {
           text: "Blue Card",
           status: PodVisaStatus.BLUE,
           color: "#0000FF",
-          backgroundColor: "rgb(0 0 255 / 44%)",
-          image: "/visa-blue.svg",
+          backgroundColor: "linear-gradient(to top, #000023,rgb(0, 0, 108))",
+          image: "/visa-blue.png",
           description: "Basic status - 2+ killmails",
         };
       default:
@@ -127,8 +127,8 @@ export const App = () => {
           text: "No Visa",
           status: PodVisaStatus.NONE,
           color: "#808080",
-          backgroundColor: "rgb(128 128 128 / 44%)",
-          image: "/visa-none.svg",
+          backgroundColor: "linear-gradient(to top,rgb(34, 34, 35), #808080)",
+          image: "/visa-none.png",
           description: "Start submitting killmails to earn your visa!",
         };
     }
