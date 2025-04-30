@@ -14,19 +14,18 @@ interface VisaProps {
   playerAddress: string | undefined;
   statusInfo: {
     image: string;
-    visaStatus: VisaStatus;
+    status: VisaStatus;
     text: string;
     color: string;
     description: string;
   };
   counterValue: number;
-  holderAddress: string | undefined;
+  holderAddress: string;
 }
 
 
 export function Visa({ playerAddress, statusInfo, counterValue, holderAddress }: VisaProps) {
   const [visaPod, setVisaPod] = useState();
-
   
   return playerAddress ? (
     <div>
@@ -60,7 +59,7 @@ export function Visa({ playerAddress, statusInfo, counterValue, holderAddress }:
         <button
           onClick={async () => {
             try {
-              const pod = await createVisaPod(holderAddress, new Date("2026-04-10T00:00:00.000Z"), statusInfo.visaStatus);
+              const pod = await createVisaPod(holderAddress, new Date("2026-04-10T00:00:00.000Z"), statusInfo.status);
               setVisaPod(pod);
             } catch (err) {
               console.error("Failed to create POD:", err);
