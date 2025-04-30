@@ -1,12 +1,54 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@include fontfaceWoff2AndWoff("Body", "/fonts/FavoritMonoStd-Light", 200);
-@include fontfaceWoff2AndWoff("Body", "/fonts/FavoritMonoStd-Book", 300);
-@include fontfaceWoff2AndWoff("Body", "/fonts/FavoritMonoStd-Regular", 400);
-@include fontfaceWoff2AndWoff("Body", "/fonts/FavoritMonoStd-Bold", 700);
-@include fontfaceWoff2AndWoff("Headline", "/fonts/Disket-Mono-Regular", 400);
-@include fontfaceWoff2AndWoff("Headline", "/fonts/Disket-Mono-Bold", 700);
+
+@font-face {
+  font-family: "Body";
+  src:
+    url("/fonts/FavoritMonoStd-Light.woff2") format("woff2"),
+    url("/fonts/FavoritMonoStd-Light.woff") format("woff");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Body";
+  src:
+    url("/fonts/FavoritMonoStd-Book.woff2") format("woff2"),
+    url("/fonts/FavoritMonoStd-Book.woff") format("woff");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Body";
+  src:
+    url("/fonts/FavoritMonoStd-Regular.woff2") format("woff2"),
+    url("/fonts/FavoritMonoStd-Regular.woff") format("woff");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Body";
+  src:
+    url("/fonts/FavoritMonoStd-Bold.woff2") format("woff2"),
+    url("/fonts/FavoritMonoStd-Bold.woff") format("woff");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Headline";
+  src:
+    url("/fonts/Disket-Mono-Regular.woff2") format("woff2"),
+    url("/fonts/Disket-Mono-Regular.woff") format("woff");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Headline";
+  src:
+    url("/fonts/Disket-Mono-Bold.woff2") format("woff2"),
+    url("/fonts/Disket-Mono-Bold.woff") format("woff");
+  font-weight: 700;
+}
 
 :root {
   --background: oklch(0.86 0.156 54.888);
@@ -129,12 +171,20 @@
 
   body {
     background: linear-gradient(to bottom right, #0f0f0f, #ff4700);
-    font-family: "ABC Favorit Mono";
+    font-family: Body;
     position: relative;
+
+    background-image: url("/fabricator.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
   h1 {
     font-family: Headline;
+    font-weight: 500;
     color: #ff4700;
     text-transform: uppercase;
     text-shadow: 1px 1px var(--dark);
@@ -143,17 +193,25 @@
   }
 
   h2 {
+    font-family: Headline;
+    font-weight: 400;
+
     color: #db6329;
     font-size: 30px;
   }
 
   h3 {
+    font-family: Headline;
+    font-weight: 400;
     font-size: 20px;
   }
 
   p {
-    font-family: "Source Sans Pro", "Helvetica Neue", sans-serif;
-    font-weight: bold;
-    color: #fafae5;
+    font-family: Body;
+    color: #666666;
+  }
+  div {
+    font-family: Body;
+    color: #666666;
   }
 }

@@ -98,6 +98,7 @@ export const App = () => {
         return {
           text: "Golden Visa",
           color: "#FFD700",
+          backgroundColor: "rgb(255 215 0 / 44%)",
           image: "/visa-golden.svg",
           description: "Elite status - 10+ killmails",
         };
@@ -105,6 +106,7 @@ export const App = () => {
         return {
           text: "Green Card",
           color: "#00FF00",
+          backgroundColor: "rgb(0 255 0 / 44%)",
           image: "/visa-green.svg",
           description: "Advanced status - 5+ killmails",
         };
@@ -112,6 +114,7 @@ export const App = () => {
         return {
           text: "Blue Card",
           color: "#0000FF",
+          backgroundColor: "rgb(0 0 255 / 44%)",
           image: "/visa-blue.svg",
           description: "Basic status - 2+ killmails",
         };
@@ -119,6 +122,7 @@ export const App = () => {
         return {
           text: "No Visa",
           color: "#808080",
+          backgroundColor: "rgb(128 128 128 / 44%)",
           image: "/visa-none.svg",
           description: "Start submitting killmails to earn your visa!",
         };
@@ -132,7 +136,7 @@ export const App = () => {
       style={{
         padding: "2rem",
         backgroundColor: "#0f0f0f",
-        maxWidth: "800px",
+        maxWidth: "60%",
         margin: "0 auto",
         borderRadius: "1rem",
         boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.1)",
