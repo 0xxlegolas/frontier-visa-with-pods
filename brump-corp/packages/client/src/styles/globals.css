@@ -137,7 +137,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    /* background-image: url("/background.png"); */
+    background-image: url("/background.png");
     background-repeat: repeat;
     background-size: 100px;
     background-position: center;
@@ -151,13 +151,15 @@
     color: var(--blue);
     text-transform: uppercase;
     text-shadow: 1px 1px var(--dark);
+    text-align: center;
   }
 
   h2 {
     color: #db6329;
   }
   p {
-    font-family: "Impact", "Bebas Neue", sans-serif;
+    font-family: "Source Sans Pro", "Helvetica Neue", sans-serif;
+    font-weight: bold;
     color: #2a1c09;
   }
 

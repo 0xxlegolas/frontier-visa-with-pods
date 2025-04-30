@@ -129,7 +129,7 @@ export const App = () => {
     <div
       style={{
         padding: "2rem",
-        backgroundColor: "rgba(255, 255, 255, 0.8)",
+        backgroundColor: "rgba(252, 207, 167, 0.8)",
         maxWidth: "800px",
         margin: "0 auto",
         borderRadius: "1rem",
