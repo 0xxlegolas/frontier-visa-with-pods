@@ -181,38 +181,35 @@
     background-blend-mode: overlay;
     background-color: rgba(0, 0, 0, 0.5);
 
+    h1 {
+      font-family: Headline;
+      font-weight: 500;
+      color: #db6329;
+      text-transform: uppercase;
+      text-shadow: 1px 1px var(--dark);
+      font-size: 40px;
+    }
 
+    h2 {
+      font-family: Headline;
+      font-weight: 400;
+      color: #db6329;
+      font-size: 30px;
+    }
 
-  h1 {
-    font-family: Headline;
-    font-weight: 500;
-    color: #ff4700;
-    text-transform: uppercase;
-    text-shadow: 1px 1px var(--dark);
-    text-align: center;
-    font-size: 40px;
-  }
+    h3 {
+      font-family: Headline;
+      font-weight: 400;
+      font-size: 20px;
+    }
 
-  h2 {
-    font-family: Headline;
-    font-weight: 400;
-
-    color: #db6329;
-    font-size: 30px;
-  }
-
-  h3 {
-    font-family: Headline;
-    font-weight: 400;
-    font-size: 20px;
-  }
-
-  p {
-    font-family: Body;
-    color: #666666;
-  }
-  div {
-    font-family: Body;
-    color: #666666;
+    p {
+      font-family: Body;
+      color: #666666;
+    }
+    div {
+      font-family: Body;
+      color: #666666;
+    }
   }
 }
