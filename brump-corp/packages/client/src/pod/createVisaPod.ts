@@ -26,8 +26,8 @@ const privateSigningKey =
 // Visa status levels
 export enum VisaStatus {
   NONE = 0,
-  BLUE = 1, // Basic access
-  GREEN = 2, // Advanced access
+  ORANGE = 1, // Basic access
+  BLACK = 2, // Advanced access
   GOLDEN = 3, // Elite access
 }
 
