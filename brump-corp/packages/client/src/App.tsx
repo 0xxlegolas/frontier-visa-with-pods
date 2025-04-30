@@ -12,6 +12,7 @@ import {
 } from "@latticexyz/recs";
 import { useEffect, useState } from "react";
 import { Visa } from "./pod/Visa";
+import { VisaStatus as PodVisaStatus } from "./pod/createVisaPod";
 
 export const App = () => {
   const {
@@ -97,6 +98,7 @@ export const App = () => {
       case 3:
         return {
           text: "Golden Visa",
+          status: PodVisaStatus.GOLDEN,
           color: "#FFD700",
           backgroundColor: "rgb(255 215 0 / 44%)",
           image: "/visa-golden.svg",
@@ -105,6 +107,7 @@ export const App = () => {
       case 2:
         return {
           text: "Green Card",
+          status: PodVisaStatus.GREEN,
           color: "#00FF00",
           backgroundColor: "rgb(0 255 0 / 44%)",
           image: "/visa-green.svg",
@@ -113,6 +116,7 @@ export const App = () => {
       case 1:
         return {
           text: "Blue Card",
+          status: PodVisaStatus.BLUE,
           color: "#0000FF",
           backgroundColor: "rgb(0 0 255 / 44%)",
           image: "/visa-blue.svg",
@@ -121,6 +125,7 @@ export const App = () => {
       default:
         return {
           text: "No Visa",
+          status: PodVisaStatus.NONE,
           color: "#808080",
           backgroundColor: "rgb(128 128 128 / 44%)",
           image: "/visa-none.svg",
@@ -148,6 +153,7 @@ export const App = () => {
         playerAddress={playerAddress}
         statusInfo={statusInfo}
         holderAddress={holderAddress}
+        counterValue={counterValue}
       />
 
       <div style={{ marginBottom: "2rem" }}>

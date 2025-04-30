@@ -3,7 +3,7 @@ import { JSONPOD } from "@pcd/pod";
 import { verifyPodInternalSignature, checkPodSigner } from "./podVerification";
 import { Buffer } from "buffer";
 import { useMUD } from "../MUDContext";
-import { createVisaPod } from "./createVisaPod";
+import { createVisaPod, VisaStatus } from "./createVisaPod";
 
 // Make Buffer available globally
 window.Buffer = Buffer;
@@ -11,16 +11,17 @@ window.Buffer = Buffer;
 const AUTHORITY_PUB_KEY = "Mc2IbgO1ihBqpoPgE4WacZcORWNfNJko5v9rg4o2AiM";
 
 interface VisaProps {
-  playerAddress: (player: string) => Promise<void>;
+  playerAddress: string | undefined;
   statusInfo: {
     image: string;
+    visaStatus: VisaStatus;
     text: string;
     color: string;
     description: string;
     backgroundColor: string;
   };
   counterValue: number;
-  holderAddress: string;
+  holderAddress: string | undefined;
 }
 
 export function Visa({
@@ -68,7 +69,7 @@ export function Visa({
               const pod = await createVisaPod(
                 holderAddress,
                 new Date("2026-04-10T00:00:00.000Z"),
-                6
+                statusInfo.visaStatus
               );
               setVisaPod(pod);
             } catch (err) {
@@ -92,8 +93,9 @@ export function Visa({
         {visaPod && (
           <pre
             style={{
+              maxHeight: "200px",
               backgroundColor: "#111",
-              color: "#0f0",
+              color: "#ff4700",
               padding: "1rem",
               borderRadius: "8px",
               overflowX: "auto",
