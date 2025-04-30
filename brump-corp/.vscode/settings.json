@@ -1,3 +1,6 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "css.validate": true,
+  "scss.validate": true,
+  "css.customData": [".vscode/css-data.json"]
 }

@@ -1,7 +1,15 @@
+import "./styles/globals.css";
 import { useComponentValue } from "@latticexyz/react";
 import { useMUD } from "./MUDContext";
+import { singletonEntity } from "@latticexyz/store-sync/recs";
+import { Button } from "../../../components/ui/button";
 import { PodVerifier } from "./pod/PodVerifier";
-import { Entity, getComponentValue, getComponentValueStrict, ComponentUpdate } from "@latticexyz/recs";
+import {
+  Entity,
+  getComponentValue,
+  getComponentValueStrict,
+  ComponentUpdate,
+} from "@latticexyz/recs";
 import { useEffect, useState } from "react";
 
 export const App = () => {
@@ -37,26 +45,30 @@ export const App = () => {
     setPlayerEntity(entity);
 
     // Subscribe to component updates
-    const counterSubscription = Counter.update$.subscribe((update: ComponentUpdate) => {
-      console.log("Counter update:", update);
-      const entity = update.entity;
-      const value = getComponentValue(Counter, entity)?.value;
-      console.log("New counter value:", value);
-      if (value !== undefined) {
-        setCounterValue(value as number);
+    const counterSubscription = Counter.update$.subscribe(
+      (update: ComponentUpdate) => {
+        console.log("Counter update:", update);
+        const entity = update.entity;
+        const value = getComponentValue(Counter, entity)?.value;
+        console.log("New counter value:", value);
+        if (value !== undefined) {
+          setCounterValue(value as number);
+        }
       }
-    });
+    );
 
-    const visaStatusSubscription = VisaStatus.update$.subscribe((update: ComponentUpdate) => {
-      const entity = update.entity;
-      const visaData = getComponentValue(VisaStatus, entity);
-      const hexValue = visaData?.__staticData as string;
-      const value = hexValue ? parseInt(hexValue, 16) : undefined;
-      console.log("New visa status value:", value);
-      if (value !== undefined) {
-        setVisaStatusValue(value);
+    const visaStatusSubscription = VisaStatus.update$.subscribe(
+      (update: ComponentUpdate) => {
+        const entity = update.entity;
+        const visaData = getComponentValue(VisaStatus, entity);
+        const hexValue = visaData?.__staticData as string;
+        const value = hexValue ? parseInt(hexValue, 16) : undefined;
+        console.log("New visa status value:", value);
+        if (value !== undefined) {
+          setVisaStatusValue(value);
+        }
       }
-    });
+    );
 
     // Get initial values
     const initialCounter = getComponentValue(Counter, entity);
@@ -114,23 +126,34 @@ export const App = () => {
   const statusInfo = getVisaStatusInfo(visaStatusValue);
 
   return (
-    <div style={{ padding: "2rem", maxWidth: "800px", margin: "0 auto" }}>
+    <div
+      style={{
+        padding: "2rem",
+        backgroundColor: "rgba(252, 207, 167, 0.8)",
+        maxWidth: "800px",
+        margin: "0 auto",
+        borderRadius: "1rem",
+        boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.1)",
+      }}
+    >
       <h1>Frontier Visa with PODs</h1>
-      
+
       {playerAddress ? (
         <div style={{ marginBottom: "2rem" }}>
           <h2>Your Status</h2>
-          <div style={{ 
-            padding: "1rem", 
-            borderRadius: "8px", 
-            backgroundColor: "#f5f5f5",
-            display: "flex",
-            alignItems: "center",
-            gap: "1rem"
-          }}>
+          <div
+            style={{
+              padding: "1rem",
+              borderRadius: "8px",
+              backgroundColor: "#f5f5f5",
+              display: "flex",
+              alignItems: "center",
+              gap: "1rem",
+            }}
+          >
             <div style={{ width: "64px", height: "64px" }}>
-              <img 
-                src={statusInfo.image} 
+              <img
+                src={statusInfo.image}
                 alt={statusInfo.text}
                 style={{ width: "100%", height: "100%" }}
               />
@@ -151,7 +174,7 @@ export const App = () => {
       ) : (
         <div style={{ marginBottom: "2rem" }}>
           <h2>Welcome to Frontier Visa</h2>
-          <p style={{ color: "#666", marginBottom: "1rem" }}>
+          <p style={{ marginBottom: "1rem" }}>
             Submit your killmail POD to get started and earn your visa status.
           </p>
         </div>
@@ -159,10 +182,10 @@ export const App = () => {
 
       <div style={{ marginBottom: "2rem" }}>
         <h2>Prove Your Loyalty and Earn a Visa</h2>
-        <p style={{ color: "#666", marginBottom: "1rem" }}>
+        <p style={{ marginBottom: "1rem" }}>
           Submit your killmail POD to increase your status. Requirements:
         </p>
-        <ul style={{ color: "#666", marginBottom: "1rem" }}>
+        <ul style={{ marginBottom: "1rem" }}>
           <li>2+ killmails: Blue Card</li>
           <li>5+ killmails: Green Card</li>
           <li>10+ killmails: Golden Visa</li>

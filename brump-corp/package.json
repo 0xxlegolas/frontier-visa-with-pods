@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "pnpm recursive run build",
+    "clean": "pnpm recursive exec -- rm -rf dist node_modules",
     "dev": "mprocs",
     "dev:client": "pnpm --filter 'client' run dev",
     "dev:contracts": "pnpm --filter 'contracts' dev",
@@ -17,15 +18,29 @@
     "@latticexyz/explorer": "2.2.15",
     "@latticexyz/store-indexer": "2.2.15",
     "@types/debug": "4.1.7",
+    "@types/react": "^19.1.2",
     "@typescript-eslint/eslint-plugin": "7.1.1",
     "@typescript-eslint/parser": "7.1.1",
+    "autoprefixer": "^10.4.21",
     "eslint": "8.57.0",
     "mprocs": "^0.7.1",
+    "postcss": "^8.5.3",
     "shx": "^0.3.4",
+    "tailwindcss": "^4.1.4",
     "typescript": "5.4.2"
   },
   "engines": {
     "node": "^18",
     "pnpm": "^8 || ^9"
+  },
+  "packageManager": "pnpm@8.15.4",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.503.0",
+    "react": "^18.3.1",
+    "tailwind-merge": "^3.2.0",
+    "tw-animate-css": "^1.2.8"
   }
 }
