@@ -3,7 +3,7 @@
  * By default connect to the anvil test network.
  *
  */
-
+import { type Hex } from "viem";
 /*
  * By default the template just creates a temporary wallet
  * (called a burner wallet).

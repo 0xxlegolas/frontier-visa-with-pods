@@ -1,8 +1,13 @@
 import "./styles/globals.css";
 import { useComponentValue } from "@latticexyz/react";
 import { useMUD } from "./MUDContext";
+import { MUDProvider } from "./MUDContext";
+import { setup } from "./mud/setup";
+
 import { singletonEntity } from "@latticexyz/store-sync/recs";
-import { Button } from "../../../components/ui/button";
+import { Button } from "@/components/ui/button";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+
 import { PodVerifier } from "./pod/PodVerifier";
 import {
   Entity,
@@ -19,7 +24,8 @@ export const App = () => {
     components: { Counter, VisaStatus },
     systemCalls: { submitKillmail },
     network: { world },
-  } = useMUD();
+    walletClient
+    } = useMUD();
 
   const [playerEntity, setPlayerEntity] = useState<Entity | undefined>();
   const [holderAddress, setHolderAddress] = useState<string | undefined>();
@@ -138,6 +144,9 @@ export const App = () => {
 
   const statusInfo = getVisaStatusInfo(visaStatusValue);
 
+  const handleEveToken = async () => {
+    console.log("handleEveToken");
+  }
   return (
     <div
       style={{
@@ -150,6 +159,20 @@ export const App = () => {
       }}
     >
       <h1>Frontier Visa with PODs</h1>
+      <ConnectButton />
+      <button 
+        onClick={handleEveToken}
+        style={{
+          padding: "0.5rem 1rem",
+          backgroundColor: "#4CAF50",
+          color: "white",
+          border: "none",
+          borderRadius: "4px",
+          cursor: "pointer"
+        }}
+      >
+        Verify POD
+      </button>
 
       <Visa
         playerAddress={playerAddress}

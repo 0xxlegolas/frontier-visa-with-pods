@@ -9,13 +9,15 @@ type Props = {
 };
 
 export const MUDProvider = ({ children, value }: Props) => {
-  const currentValue = useContext(MUDContext);
+  const currentValue = useContext(MUDContext ?? value);
+  console.log("currentValue", currentValue,);
   if (currentValue) throw new Error("MUDProvider can only be used once");
   return <MUDContext.Provider value={value}>{children}</MUDContext.Provider>;
 };
 
 export const useMUD = () => {
   const value = useContext(MUDContext);
+  console.log("value", value, MUDContext);
   if (!value) throw new Error("Must be used within a MUDProvider");
   return value;
 };
