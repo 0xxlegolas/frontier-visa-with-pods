@@ -95,7 +95,7 @@ export const App = () => {
   const getVisaStatusInfo = (status: number) => {
     console.log("Getting visa status info for status:", status);
     switch (status) {
-      case 3:
+      case 1:
         return {
           text: "Golden Visa",
           status: PodVisaStatus.GOLDEN,
@@ -106,20 +106,22 @@ export const App = () => {
         };
       case 2:
         return {
-          text: "Green Card",
-          status: PodVisaStatus.GREEN,
-          color: "#00FF00",
-          backgroundColor: "linear-gradient(to top, #002310,rgb(60, 108, 67))",
-          image: "/visa-green.png",
+          text: "Black Card",
+          status: PodVisaStatus.BLACK,
+          color: "white",
+          backgroundColor:
+            "linear-gradient(to top,rgb(34, 34, 34),rgb(0, 0, 0))",
+          image: "/visa-black.png",
           description: "Advanced status - 5+ killmails",
         };
-      case 1:
+      case 3:
         return {
-          text: "Blue Card",
-          status: PodVisaStatus.BLUE,
-          color: "#0000FF",
-          backgroundColor: "linear-gradient(to top, #000023,rgb(0, 0, 108))",
-          image: "/visa-blue.png",
+          text: "Orange Card",
+          status: PodVisaStatus.ORANGE,
+          color: "#FF4700",
+          backgroundColor:
+            "linear-gradient(to top,rgb(35, 8, 0),rgb(159, 58, 0))",
+          image: "/visa-orange.png",
           description: "Basic status - 2+ killmails",
         };
       default:
@@ -162,9 +164,9 @@ export const App = () => {
           Submit your killmail POD to increase your status. Requirements:
         </p>
         <ul style={{ marginBottom: "1rem" }}>
-          <li>2+ killmails: Blue Card</li>
-          <li>5+ killmails: Green Card</li>
-          <li>10+ killmails: Golden Visa</li>
+          <li>2+ killmails: Orange Card</li>
+          <li>5+ killmails: Black Card</li>
+          <li>10+ killmails: Golden Card</li>
         </ul>
         <PodVerifier
           onValidPod={handleValidPod}
