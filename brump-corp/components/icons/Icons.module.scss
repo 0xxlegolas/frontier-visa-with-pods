@@ -1,0 +1,40 @@
+.icon {
+  &__arrow,
+  &__hamburger {
+    @apply transition-transform duration-150 ease-in-out;
+
+    &--up {
+      transform: rotate(180deg);
+    }
+
+    &--down {
+      transform: rotate(0deg);
+    }
+
+    &--left {
+      transform: rotate(90deg);
+    }
+
+    &--right {
+      transform: rotate(-90deg);
+    }
+  }
+}
+
+.navLinkIcon {
+  @apply w-fit h-fit flex flex-col gap-[1px];
+
+  &__row {
+    @apply flex gap-[1px];
+
+    &--node {
+      @apply bg-orange opacity-40;
+      width: 4px;
+      height: 4px;
+
+      &[data-is-active='true'] {
+        @apply opacity-100;
+      }
+    }
+  }
+}

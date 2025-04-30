@@ -30,7 +30,7 @@ export const App = () => {
   const handleValidPod = async (player: string) => {
     console.log("Handling valid POD for player:", player);
     setPlayerAddress(player);
-    try { 
+    try {
       console.log("Submitting killmail...");
       const result = await submitKillmail(player);
       console.log("Killmail submission result:", result);
@@ -100,6 +100,7 @@ export const App = () => {
           text: "Golden Visa",
           status: PodVisaStatus.GOLDEN,
           color: "#FFD700",
+          backgroundColor: "rgb(255 215 0 / 44%)",
           image: "/visa-golden.svg",
           description: "Elite status - 10+ killmails",
         };
@@ -108,6 +109,7 @@ export const App = () => {
           text: "Green Card",
           status: PodVisaStatus.GREEN,
           color: "#00FF00",
+          backgroundColor: "rgb(0 255 0 / 44%)",
           image: "/visa-green.svg",
           description: "Advanced status - 5+ killmails",
         };
@@ -116,6 +118,7 @@ export const App = () => {
           text: "Blue Card",
           status: PodVisaStatus.BLUE,
           color: "#0000FF",
+          backgroundColor: "rgb(0 0 255 / 44%)",
           image: "/visa-blue.svg",
           description: "Basic status - 2+ killmails",
         };
@@ -124,6 +127,7 @@ export const App = () => {
           text: "No Visa",
           status: PodVisaStatus.NONE,
           color: "#808080",
+          backgroundColor: "rgb(128 128 128 / 44%)",
           image: "/visa-none.svg",
           description: "Start submitting killmails to earn your visa!",
         };
@@ -136,16 +140,21 @@ export const App = () => {
     <div
       style={{
         padding: "2rem",
-        backgroundColor: "rgba(252, 207, 167, 0.8)",
-        maxWidth: "800px",
+        backgroundColor: "#0f0f0f",
+        maxWidth: "60%",
         margin: "0 auto",
         borderRadius: "1rem",
         boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.1)",
       }}
     >
       <h1>Frontier Visa with PODs</h1>
-      
-      <Visa playerAddress={playerAddress} statusInfo={statusInfo} holderAddress={holderAddress} counterValue={counterValue}/>
+
+      <Visa
+        playerAddress={playerAddress}
+        statusInfo={statusInfo}
+        holderAddress={holderAddress}
+        counterValue={counterValue}
+      />
 
       <div style={{ marginBottom: "2rem" }}>
         <h2>Prove Your Loyalty and Earn a Visa</h2>
@@ -157,7 +166,10 @@ export const App = () => {
           <li>5+ killmails: Green Card</li>
           <li>10+ killmails: Golden Visa</li>
         </ul>
-        <PodVerifier onValidPod={handleValidPod} setHolderAddress={setHolderAddress}/>
+        <PodVerifier
+          onValidPod={handleValidPod}
+          setHolderAddress={setHolderAddress}
+        />
       </div>
     </div>
   );

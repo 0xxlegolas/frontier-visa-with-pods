@@ -14,7 +14,10 @@ interface PodVerifierProps {
   setHolderAddress: (address: string) => void;
 }
 
-export function PodVerifier({ onValidPod, setHolderAddress }: PodVerifierProps) {
+export function PodVerifier({
+  onValidPod,
+  setHolderAddress,
+}: PodVerifierProps) {
   const {
     systemCalls: { submitKillmail },
   } = useMUD();
@@ -50,14 +53,14 @@ export function PodVerifier({ onValidPod, setHolderAddress }: PodVerifierProps) 
 
     // 3. Verify required fields
     const requiredFields = [
-      'killer_address',
-      'killer_name',
-      'loss_type',
-      'pod_data_type',
-      'solar_system_id',
-      'timestamp',
-      'victim_address',
-      'victim_name'
+      "killer_address",
+      "killer_name",
+      "loss_type",
+      "pod_data_type",
+      "solar_system_id",
+      "timestamp",
+      "victim_address",
+      "victim_name",
     ];
 
     for (const field of requiredFields) {
@@ -68,11 +71,11 @@ export function PodVerifier({ onValidPod, setHolderAddress }: PodVerifierProps) 
     }
 
     // 4. Verify pod type
-    if (pod.entries.pod_data_type !== 'evefrontier.killmail') {
+    if (pod.entries.pod_data_type !== "evefrontier.killmail") {
       messages.push('❌ Invalid pod type: expected "evefrontier.killmail"');
       isValid = false;
     } else {
-      messages.push('✅ Pod type is correct');
+      messages.push("✅ Pod type is correct");
     }
 
     return { isValid, messages };
@@ -103,7 +106,7 @@ export function PodVerifier({ onValidPod, setHolderAddress }: PodVerifierProps) 
       // Verify the POD structure
       const result = verifyKillmailPod(parsedPod);
       setVerificationResult(result);
-      
+
       if (result.isValid) {
         try {
           const killerAddress = parsedPod.entries.killer_address;
@@ -131,60 +134,69 @@ export function PodVerifier({ onValidPod, setHolderAddress }: PodVerifierProps) 
         value={podInput}
         onChange={(e) => setPodInput(e.target.value)}
         placeholder="Paste your JSONPOD here..."
-        style={{ 
-          width: "100%", 
-          height: "200px", 
+        style={{
+          width: "100%",
+          height: "200px",
           marginBottom: "1rem",
           padding: "0.5rem",
           fontFamily: "monospace",
-          fontSize: "14px"
+          fontSize: "14px",
         }}
       />
-      <button 
+      <button
         onClick={handleVerify}
         style={{
           padding: "0.5rem 1rem",
-          backgroundColor: "#4CAF50",
+          backgroundColor: "#ff4700",
           color: "white",
           border: "none",
           borderRadius: "4px",
-          cursor: "pointer"
+          cursor: "pointer",
         }}
       >
         Verify POD
       </button>
-      
+
       {error && (
-        <div style={{ 
-          color: "red", 
-          marginTop: "1rem",
-          padding: "0.5rem",
-          backgroundColor: "#ffebee",
-          borderRadius: "4px"
-        }}>
+        <div
+          style={{
+            color: "red",
+            marginTop: "1rem",
+            padding: "0.5rem",
+            backgroundColor: "#ffebee",
+            borderRadius: "4px",
+          }}
+        >
           {error}
         </div>
       )}
       {verificationResult && (
-        <div style={{ 
-          marginTop: "1rem",
-          padding: "1rem",
-          backgroundColor: "#f5f5f5",
-          borderRadius: "4px"
-        }}>
+        <div
+          style={{
+            marginTop: "1rem",
+            padding: "1rem",
+            backgroundColor: "#f5f5f5",
+            borderRadius: "4px",
+          }}
+        >
           <h3 style={{ marginTop: 0 }}>Verification Results:</h3>
           {verificationResult.messages.map((msg, index) => (
-            <div key={index} style={{ marginBottom: "0.5rem" }}>{msg}</div>
+            <div key={index} style={{ marginBottom: "0.5rem" }}>
+              {msg}
+            </div>
           ))}
-          <div style={{ 
-            marginTop: "1rem", 
-            fontWeight: "bold",
-            color: verificationResult.isValid ? "green" : "red"
-          }}>
-            Final Result: {verificationResult.isValid ? "✅ VALID" : "❌ INVALID"}
+          <div
+            style={{
+              marginTop: "1rem",
+              fontWeight: "bold",
+              color: verificationResult.isValid ? "green" : "red",
+            }}
+          >
+            Final Result:{" "}
+            {verificationResult.isValid ? "✅ VALID" : "❌ INVALID"}
           </div>
         </div>
       )}
     </div>
   );
-} 
+}

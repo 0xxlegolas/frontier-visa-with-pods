@@ -18,15 +18,19 @@ interface VisaProps {
     text: string;
     color: string;
     description: string;
+    backgroundColor: string;
   };
   counterValue: number;
   holderAddress: string;
 }
 
-
-export function Visa({ playerAddress, statusInfo, counterValue, holderAddress }: VisaProps) {
+export function Visa({
+  playerAddress,
+  statusInfo,
+  counterValue,
+  holderAddress,
+}: VisaProps) {
   const [visaPod, setVisaPod] = useState();
-  
   return playerAddress ? (
     <div>
       <h2>Your Status</h2>
@@ -34,7 +38,7 @@ export function Visa({ playerAddress, statusInfo, counterValue, holderAddress }:
         style={{
           padding: "1rem",
           borderRadius: "8px",
-          backgroundColor: "#f5f5f5",
+          background: statusInfo.backgroundColor,
           display: "flex",
           alignItems: "center",
           gap: "1rem",
@@ -48,11 +52,13 @@ export function Visa({ playerAddress, statusInfo, counterValue, holderAddress }:
           />
         </div>
         <div style={{ flex: 1 }}>
-          <h3 style={{ margin: 0, color: statusInfo.color }}>{statusInfo.text}</h3>
-          <p style={{ margin: "0.5rem 0 0 0", color: "#666" }}>
+          <h3 style={{ margin: 0, color: statusInfo.color }}>
+            {statusInfo.text}
+          </h3>
+          <p style={{ margin: "0.5rem 0 0 0", color: statusInfo.color }}>
             {statusInfo.description}
           </p>
-          <p style={{ margin: "0.5rem 0 0 0", color: "#666" }}>
+          <p style={{ margin: "0.5rem 0 0 0", color: statusInfo.color }}>
             Killmail Count: {counterValue}
           </p>
         </div>
@@ -60,6 +66,7 @@ export function Visa({ playerAddress, statusInfo, counterValue, holderAddress }:
           onClick={async () => {
             try {
               const pod = await createVisaPod(holderAddress, new Date("2026-04-10T00:00:00.000Z"), statusInfo.status);
+
               setVisaPod(pod);
             } catch (err) {
               console.error("Failed to create POD:", err);
@@ -67,8 +74,8 @@ export function Visa({ playerAddress, statusInfo, counterValue, holderAddress }:
           }}
           style={{
             padding: "0.5rem 1rem",
-            backgroundColor: "#ff5722",
-            color: "#fff",
+            color: "rgb(15, 15, 15)",
+            backgroundColor: statusInfo.color,
             border: "none",
             borderRadius: "4px",
             cursor: "pointer",
@@ -79,28 +86,29 @@ export function Visa({ playerAddress, statusInfo, counterValue, holderAddress }:
         </button>
       </div>
       <div>
-     { visaPod && <pre
-          style={{
-            maxHeight: "200px",
-            backgroundColor: "#111",
-            color: "#0f0",
-            padding: "1rem",
-            borderRadius: "8px",
-            overflowX: "auto",
-            fontSize: "0.85rem",
-          }}
-        >
-  {visaPod ? JSON.stringify(JSON.parse(visaPod), null, 2) : "No POD"}
-  </pre>}
+        {visaPod && (
+          <pre
+            style={{
+              maxHeight: "200px",
+              backgroundColor: "#111",
+              color: "#ff4700",
+              padding: "1rem",
+              borderRadius: "8px",
+              overflowX: "auto",
+              fontSize: "0.85rem",
+            }}
+          >
+            {visaPod ? JSON.stringify(JSON.parse(visaPod), null, 2) : "No POD"}
+          </pre>
+        )}
       </div>
     </div>
   ) : (
-    <div >
+    <div>
       <h2>Welcome to Frontier Visa</h2>
       <p style={{ color: "#666", marginBottom: "1rem" }}>
         Submit your killmail POD to get started and earn your visa status.
       </p>
-    </div>  
+    </div>
   );
-  
-} 
+}
