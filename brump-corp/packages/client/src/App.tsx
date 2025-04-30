@@ -11,6 +11,7 @@ import {
   ComponentUpdate,
 } from "@latticexyz/recs";
 import { useEffect, useState } from "react";
+import { Visa } from "./pod/Visa";
 
 export const App = () => {
   const {
@@ -20,6 +21,7 @@ export const App = () => {
   } = useMUD();
 
   const [playerEntity, setPlayerEntity] = useState<Entity | undefined>();
+  const [holderAddress, setHolderAddress] = useState<string | undefined>();
   const [counterValue, setCounterValue] = useState<number>(0);
   const [visaStatusValue, setVisaStatusValue] = useState<number>(0);
   const [playerAddress, setPlayerAddress] = useState<string | undefined>();
@@ -27,7 +29,7 @@ export const App = () => {
   const handleValidPod = async (player: string) => {
     console.log("Handling valid POD for player:", player);
     setPlayerAddress(player);
-    try {
+    try { 
       console.log("Submitting killmail...");
       const result = await submitKillmail(player);
       console.log("Killmail submission result:", result);
@@ -137,48 +139,8 @@ export const App = () => {
       }}
     >
       <h1>Frontier Visa with PODs</h1>
-
-      {playerAddress ? (
-        <div style={{ marginBottom: "2rem" }}>
-          <h2>Your Status</h2>
-          <div
-            style={{
-              padding: "1rem",
-              borderRadius: "8px",
-              backgroundColor: "#f5f5f5",
-              display: "flex",
-              alignItems: "center",
-              gap: "1rem",
-            }}
-          >
-            <div style={{ width: "64px", height: "64px" }}>
-              <img
-                src={statusInfo.image}
-                alt={statusInfo.text}
-                style={{ width: "100%", height: "100%" }}
-              />
-            </div>
-            <div>
-              <h3 style={{ margin: 0, color: statusInfo.color }}>
-                {statusInfo.text}
-              </h3>
-              <p style={{ margin: "0.5rem 0 0 0", color: "#666" }}>
-                {statusInfo.description}
-              </p>
-              <p style={{ margin: "0.5rem 0 0 0", color: "#666" }}>
-                Killmail Count: {counterValue}
-              </p>
-            </div>
-          </div>
-        </div>
-      ) : (
-        <div style={{ marginBottom: "2rem" }}>
-          <h2>Welcome to Frontier Visa</h2>
-          <p style={{ marginBottom: "1rem" }}>
-            Submit your killmail POD to get started and earn your visa status.
-          </p>
-        </div>
-      )}
+      
+      <Visa playerAddress={playerAddress} statusInfo={statusInfo} holderAddress={holderAddress} />
 
       <div style={{ marginBottom: "2rem" }}>
         <h2>Prove Your Loyalty and Earn a Visa</h2>
@@ -190,7 +152,7 @@ export const App = () => {
           <li>5+ killmails: Green Card</li>
           <li>10+ killmails: Golden Visa</li>
         </ul>
-        <PodVerifier onValidPod={handleValidPod} />
+        <PodVerifier onValidPod={handleValidPod} setHolderAddress={setHolderAddress} />
       </div>
     </div>
   );

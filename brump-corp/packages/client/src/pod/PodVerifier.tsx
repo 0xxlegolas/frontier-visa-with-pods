@@ -11,9 +11,10 @@ const AUTHORITY_PUB_KEY = "Mc2IbgO1ihBqpoPgE4WacZcORWNfNJko5v9rg4o2AiM";
 
 interface PodVerifierProps {
   onValidPod: (player: string) => Promise<void>;
+  setHolderAddress: (address: string) => void;
 }
 
-export function PodVerifier({ onValidPod }: PodVerifierProps) {
+export function PodVerifier({ onValidPod, setHolderAddress }: PodVerifierProps) {
   const {
     systemCalls: { submitKillmail },
   } = useMUD();
@@ -106,11 +107,12 @@ export function PodVerifier({ onValidPod }: PodVerifierProps) {
       if (result.isValid) {
         try {
           const killerAddress = parsedPod.entries.killer_address;
+          setHolderAddress(killerAddress as string);
           if (!killerAddress) {
             setError("Killer address not found in POD");
             return;
           }
-          await onValidPod(killerAddress);
+          await onValidPod(killerAddress as string);
         } catch (podError) {
           console.error("POD Processing Error:", podError);
           setError("Error processing POD. Please try again.");
@@ -163,7 +165,6 @@ export function PodVerifier({ onValidPod }: PodVerifierProps) {
           {error}
         </div>
       )}
-      
       {verificationResult && (
         <div style={{ 
           marginTop: "1rem",
