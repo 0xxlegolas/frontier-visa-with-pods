@@ -2,19 +2,23 @@
 pragma solidity >=0.8.0;
 
 import { System } from "@latticexyz/world/src/System.sol";
-import { Counter, VisaStatus } from "../codegen/index.sol";
+import { Counter, VisaStatus , VisaByCharacter} from "../codegen/index.sol";
+import { Tenant, CharactersByAccount } from "@eveworld/world-v2/src/namespaces/evefrontier/codegen/index.sol";
+
 
 contract VisaSystem is System {
-  // Visa status constants
-  uint8 constant NONE = 0;
-  uint8 constant BLUE = 1;
-  uint8 constant GREEN = 2;
-  uint8 constant GOLDEN = 3;
+
+  enum Status {
+    NONE,
+    BLUE,
+    GREEN,
+    GOLDEN
+  }
 
   // Killmail thresholds for visa status
-  uint32 constant BLUE_THRESHOLD = 2;
-  uint32 constant GREEN_THRESHOLD = 5;
-  uint32 constant GOLDEN_THRESHOLD = 10;
+  uint32 public BLUE_THRESHOLD = 2;
+  uint32 public GREEN_THRESHOLD = 5;
+  uint32 public GOLDEN_THRESHOLD = 10;
 
   /**
    * @notice Processes a killmail submission and updates the player's visa status
@@ -30,16 +34,26 @@ contract VisaSystem is System {
 
     // Determine and set new visa status
     if (newCount >= GOLDEN_THRESHOLD) {
-      newStatus = GOLDEN;
+      newStatus = uint8(Status.GOLDEN);
     } else if (newCount >= GREEN_THRESHOLD) {
-      newStatus = GREEN;
+      newStatus = uint8(Status.GREEN);
     } else if (newCount >= BLUE_THRESHOLD) {
-      newStatus = BLUE;
+      newStatus = uint8(Status.BLUE);
     } else {
-      newStatus = NONE;
+      newStatus = uint8(Status.NONE);
     }
+
+    uint256 characterId = CharactersByAccount.getSmartObjectId(player);
+    
 
     // Update visa status
     VisaStatus.setStatus(player, newStatus);
+    VisaByCharacter.set(characterId, player);
+  }
+
+  function setThreshold(uint32 blue, uint32 green, uint32 golden) public {
+    BLUE_THRESHOLD = blue;
+    GREEN_THRESHOLD = green;
+    GOLDEN_THRESHOLD = golden;
   }
 } 

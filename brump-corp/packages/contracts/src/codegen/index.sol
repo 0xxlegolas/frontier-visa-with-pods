@@ -5,3 +5,4 @@ pragma solidity >=0.8.24;
 
 import { Counter } from "./tables/Counter.sol";
 import { VisaStatus } from "./tables/VisaStatus.sol";
+import { VisaByCharacter } from "./tables/VisaByCharacter.sol";

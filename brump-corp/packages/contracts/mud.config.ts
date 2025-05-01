@@ -17,5 +17,13 @@ export default defineWorld({
       },
       key: ["player"],
     },
+
+    VisaByCharacter: {
+      schema: {
+        characterId: "uint256",
+        player: "address"
+      },
+      key: ["characterId"],
+    },
   },
 });

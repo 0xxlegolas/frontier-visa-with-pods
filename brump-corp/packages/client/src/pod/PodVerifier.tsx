@@ -742,7 +742,7 @@ const Checked = () => (
   </svg>
 );
 
-const AUTHORITY_PUB_KEY = "Mc2IbgO1ihBqpoPgE4WacZcORWNfNJko5v9rg4o2AiM";
+const AUTHORITY_PUB_KEY = "GSDrthtjD/t5bSrLMMvnjeqJrtdjFxmhD0nfo/3fkpo";
 
 interface PodVerifierProps {
   onValidPod: (player: string) => Promise<void>;

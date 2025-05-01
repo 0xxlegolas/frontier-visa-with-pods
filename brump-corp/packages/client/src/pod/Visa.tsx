@@ -31,6 +31,8 @@ export function Visa({
   holderAddress,
 }: VisaProps) {
   const [visaPod, setVisaPod] = useState();
+  console.log("Visa: statusInfo", statusInfo);
+
   return playerAddress ? (
     <div>
       <h3>Your Status</h3>

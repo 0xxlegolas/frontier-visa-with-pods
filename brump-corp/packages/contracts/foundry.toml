@@ -23,7 +23,7 @@ extra_output_files = [
 fs_permissions = [{ access = "read", path = "./"}]
 
 [profile.garnet]
-eth_rpc_url = "https://rpc.garnetchain.com"
+eth_rpc_url = "https://pyrope-external-sync-node-rpc.live.tech.evefrontier.com"
 
 [profile.redstone]
 eth_rpc_url = "https://rpc.redstonechain.com"

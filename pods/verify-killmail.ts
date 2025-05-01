@@ -3,24 +3,24 @@ import { verifyPodInternalSignature, checkPodSigner } from "./podVerification";
 
 // Example killmail pod for testing
 const exampleKillmailPod: JSONPOD = {
-  "entries": {
-    "killer_address": "0x296faad88bf98348221e7fbeae81ba1e863d29c2",
-    "killer_name": "Afsaty",
-    "loss_type": "ship",
-    "pod_data_type": "evefrontier.killmail",
-    "solar_system_id": 30010690,
-    "timestamp": {
-      "int": "0x1dbaaf914329700"
+    "entries": {
+      "killer_address": "0x019eef303301206b3f314b787c614dd127db1e70",
+      "killer_name": "Dolo Hack",
+      "loss_type": "ship",
+      "pod_data_type": "evefrontier.killmail",
+      "solar_system_id": 30020308,
+      "timestamp": {
+        "int": "0x1dbaaf914329700"
+      },
+      "victim_address": "0x58ddc5a86b8bb3702639ad48fca446c8bc0e4772",
+      "victim_name": "DGent"
     },
-    "victim_address": "0x4cd060b7df974a18e9157238915cde03bf95b2d8",
-    "victim_name": "Gvulf"
-  },
-  "signature": "XTjMpGwZE9OyXYKBwDBkviD2EU8eJxA/qKImJmggNxy0j4iBpNsqrk/WLlNezkGZIuNU56GwDoic/RN+Ei3jAg",
-  "signerPublicKey": "Mc2IbgO1ihBqpoPgE4WacZcORWNfNJko5v9rg4o2AiM"
-};
+    "signature": "y73tkxoHnZQzGpHfbJu+l8WRASKczDANiaZS4JJ9YQCFjxZgYTVUTpew2lGhIlqpfZpEqg81sRoOMpyPXxcqBQ",
+    "signerPublicKey": "GSDrthtjD/t5bSrLMMvnjeqJrtdjFxmhD0nfo/3fkpo"
+  };
 
 // The authority public key should match the one used to generate pods
-const AUTHORITY_PUB_KEY = "Mc2IbgO1ihBqpoPgE4WacZcORWNfNJko5v9rg4o2AiM";
+const AUTHORITY_PUB_KEY = "GSDrthtjD/t5bSrLMMvnjeqJrtdjFxmhD0nfo/3fkpo";
 
 function verifyKillmailPod(pod: JSONPOD): { isValid: boolean; messages: string[] } {
   const messages: string[] = [];
